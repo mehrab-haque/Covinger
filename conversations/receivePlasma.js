@@ -68,7 +68,11 @@ module.exports = (bot) =>{
             const text = payload.message.text;
             if( isNaN(text) ){
                 convo.say('That\'s not a proper age').then(()=> askAge(convo));
-            }else{
+            }
+            else if(text<0){
+              convo.say('That\'s not a proper age').then(()=> askAge(convo));
+            }
+            else{
               convo.set('age',text);
               askAffectedDate(convo);
             }

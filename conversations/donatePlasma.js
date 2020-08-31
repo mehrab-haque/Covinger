@@ -166,7 +166,10 @@ module.exports = (bot) =>{
             const text = payload.message.text;
             if( isNaN(text) ){
                 convo.say('That\'s not a proper number of days').then(()=> askRecoveryDate(convo));
-            }else{
+            }else if(text<0){
+              convo.say('That\'s not a proper number of days').then(()=> askRecoveryDate(convo));
+            }
+            else{
                 if(text<14){
                   convo.say(`Sorry, according to medical research you must recover at least 14 days before donating plasma, please come back again after ${14-text} days, thank you . `);
                   convo.end();
