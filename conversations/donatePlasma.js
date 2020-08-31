@@ -102,8 +102,6 @@ module.exports = (bot) =>{
         ]);
     };
 
-    //sssss
-
     const askAge = (convo) =>{
         convo.ask( (convo) =>{
             convo.say('How old are you?',{typing:true});
